@@ -10,60 +10,25 @@ import UIKit
 class ViewController: UIViewController {
 
     var count=0
-    var label:UILabel!
+    @ IBOutlet var label:UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        
-        let label=UILabel()
-        
-        label.frame = CGRect(x: 195, y: 250, width: 60, height: 60)
-        label.text="0"
-        view.addSubview(label)
-        self.label=label
-        
-        let button=UIButton()
-        button.frame=CGRect(x:150,y:350, width:120, height:60)
-        button.setTitle("Click Inc (+)", for: .normal)
-        button.setTitleColor(UIColor.blue, for: .normal)
-        
-        view.addSubview(button)
-        
-        button.addTarget(self, action: #selector(ViewController.incrementCount), for: UIControl.Event.touchUpInside)
-        
-        let buttonDec=UIButton()
-        buttonDec.frame=CGRect(x:150,y:150, width:120, height:60)
-        buttonDec.setTitle("Click Dec (-)", for: .normal)
-        buttonDec.setTitleColor(UIColor.blue, for: .normal)
-        
-        view.addSubview(buttonDec)
-        
-        buttonDec.addTarget(self, action: #selector(ViewController.decrementCount), for: UIControl.Event.touchUpInside)
-        
-        let buttonColor=UIButton()
-        buttonColor.frame=CGRect(x:150,y:550, width:120, height:60)
-        buttonColor.setTitle("Change BG Color", for: .normal)
-        buttonColor.setTitleColor(UIColor.blue, for: .normal)
-        
-        view.addSubview(buttonColor)
-        
-        buttonColor.addTarget(self, action: #selector(ViewController.changeBackground), for: UIControl.Event.touchUpInside)
-    
+        // Do any additional setup after loading the
         
     }
     
-    @objc func incrementCount(){
+    @IBAction func incrementCount(){
         self.count += 1
         self.label.text = "\(self.count)"
     }
     
-    @objc func decrementCount(){
+    @IBAction func decrementCount(){
         self.count -= 1
         self.label.text = "\(self.count)"
     }
     
-    @objc func changeBackground(){
+    @IBAction func changeBackground(){
         view.backgroundColor=makeRandomColor()
     }
     
